@@ -259,7 +259,7 @@ body {
 }
 .location__map .map__frame iframe {
   border: 2px black solid;
-  border-radius: 8%;
+  border-radius: 5px;
   position: relative;
   z-index: 2;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.9);
@@ -289,7 +289,7 @@ body {
   padding: 50px 0;
   text-align: center;
   background: rgb(51, 82, 150);
-  background: linear-gradient(180deg, rgb(239, 62, 66) 0%, rgb(239, 62, 66) 53%, rgb(51, 82, 150) 100%);
+  background: linear-gradient(180deg, black 0%, black 53%, rgb(51, 82, 150) 100%);
 }
 .services__container .services__title {
   font-size: 2.3rem;
@@ -301,17 +301,45 @@ body {
   position: relative;
   z-index: 1;
 }
+.services__container .controls button {
+  text-align: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  background-color: rgba(51, 82, 150, 0.847);
+  padding: 4px 16px 6px 16px;
+  border: 0px;
+  border-radius: 50%;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+.services__container .controls button:hover {
+  opacity: 0.7;
+}
+.services__container .controls button:focus {
+  outline: none;
+}
+.services__container .controls .prev-btn {
+  margin-right: 10px;
+  left: 10px;
+}
+.services__container .controls .next-btn {
+  margin-right: 10px;
+  right: 10px;
+}
 .services__container .card-track-marquee {
   position: relative; /* Position relative for absolute positioning */
   width: 100%; /* Ensure full width */
+  overflow: hidden;
 }
 .services__container .card-track-marquee .card-track {
-  width: 7840px;
+  width: 3600px;
   display: flex; /* Use flexbox for layout */
-  animation: scroll 40s linear infinite;
-}
-.services__container .card-track-marquee .card-track:hover {
-  animation-play-state: paused;
+  transition: transform 0.8s ease;
 }
 .services__container .card-track-marquee .card {
   width: 450px;
@@ -319,16 +347,15 @@ body {
   flex-shrink: 0; /* Occupy full width of the column */
   padding: 20px 30px;
   border: 0;
-  background-color: rgba(147, 212, 218, 0.801);
-  border-radius: 40px;
+  background-color: rgba(181, 177, 177, 0.881);
+  border-radius: 5px;
+  color: white;
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Combine transitions */
   box-shadow: -1px 1px 12px 5px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: -1px 1px 12px 5px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 1px 12px 5px rgba(0, 0, 0, 0.75);
-  transition: transform 0.2s;
 }
 .services__container .card-track-marquee .card:hover {
-  transform: scale(0.7);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
 }
 .services__container .card-track-marquee .card .card__image {
@@ -343,21 +370,22 @@ body {
   -moz-box-shadow: -1px 1px 12px 5px rgba(0, 0, 0, 0.35);
 }
 .services__container .card-track-marquee .card .card__title {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  font-family: "AmsiPro-UltraItalic";
+  text-transform: uppercase;
+  color: rgb(51, 82, 150);
 }
 .services__container .card-track-marquee .card .card__text {
   font-size: 1.1rem;
-  font-weight: bold;
+  padding: 20px;
+  font-weight: 500;
 }
 
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-3920px);
+@media (max-width: 992px) {
+  .services__container .card-track-marquee .card {
+    width: 300px;
+    margin: 20px 10px;
   }
 }
 .contact__container {

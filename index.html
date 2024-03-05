@@ -195,63 +195,17 @@
                     <h3 class="card__title">Chronic Disease Control</h3>
                     <p class="card__text"> Diabetes and Arterial Hypertension Medical Services. Available at Santa Teresa Beach, Montezuma Beach, Cobano, Nosara and Monteverde.</p>
                 </div>
-                <div class="card align-items-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="./assets/emergency.webp" alt="emergency consultation" class="card__image">
-                    <h3 class="card__title">Emergency Medical Consultation</h3>
-                    <p class="card__text">Available 24/7 everyday in Santa Teresa Beach, Montezuma Beach, Playa Carmen Beach, Nosara and Monteverde.</p>
-                </div>
-            
-                <div class="card align-items-center" data-aos="fade-up">
-                    <img src="./assets/consultation.webp" alt="medical consultation" class="card__image">
-                    <h3 class="card__title">Medical Consultation</h3>
-                    <p class="card__text">Non-Emergency Medical consultations and other services for every day need. From 8 am to 5 pm everyday.</p>
-                </div>
-
-                <div class="card align-items-center" data-aos="fade-up">
-                    <img src="./assets/transportation.jpg" alt="medical transportation" class="card__image">
-                    <h3 class="card__title">Transportation</h3>
-                    <p class="card__text">Gound, Air and Aquatic ALS and BLS Ambulance 24/7. Available from all our locations in Costa Rica</p>
-                </div>
                 
-
-                <div class="card align-items-center" data-aos="fade-up">
-                    <img src="./assets/telehealth.webp" alt="telehealth" class="card__image">
-                    <h3 class="card__title">Telehealth Consultation</h3>
-                    <p class="card__text"> Service available 24/7 for Non-Emergency Medical cases. Service can be provided anywhere in Costa Rica</p>
-                </div>
-
-            
-                <div class="card align-items-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="./assets/stitches.webp" alt="stitching and wound cleaning" class="card__image">
-                    <h3 class="card__title">Stitches, wound cleaning and care</h3>
-                    <p class="card__text">Service available 24/7 for emergency and Non-Emergency cases</p>
-
-                </div>
-
-                <div class="card align-items-center" data-aos="fade-up" data-aos-delay="300">
-                    <img src="./assets/laboratory.webp" alt="clinical laboratory" class="card__image">
-                    <h3 class="card__title">Clinical Laboratory</h3>
-                    
-                    <p class="card__text">Available in Santa Teresa Beach, Playa Carmen, Cobano, Nosara and Monteverde. STD, bacteriology, parasitology, hematology and more...</p>
-                    
-
-                </div>
-                
-                <div class="card align-items-center" data-aos="fade-up">
-                    <img src="./assets/prescription.webp" alt="medical prescriptions" class="card__image">
-                    <h3 class="card__title">Medical Prescriptions</h3>
-                    <p class="card__text"> Service available 24/7 in the whole country for Emergency and Non-Emergency cases. This can also be offered via telemedicine in some cases. Consultation necessary to verify.</p>
-                </div>
-
-                <div class="card align-items-center" data-aos="fade-up">
-                    <img src="./assets/chronicdisease.webp" alt="chronic disease control" class="card__image">
-                    <h3 class="card__title">Chronic Disease Control</h3>
-                    <p class="card__text"> Diabetes and Arterial Hypertension Medical Services. Available at Santa Teresa Beach, Montezuma Beach, Cobano, Nosara and Monteverde.</p>
-                </div>
 
             </div>
+
         </div>
-            <div class="parallax__services"></div>
+        
+        <div class="controls">
+            <button class="prev-btn">&lt;</button>
+            <button class="next-btn">&gt;</button>
+        </div>
+            
 
     </section>
     
@@ -328,6 +282,38 @@ buttons.forEach(button => {
         button.classList.remove('hover-pulsate');
         button.classList.remove('animate__fadeInUp');
     });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cardTrack = document.querySelector('.card-track');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const cardWidth = 450; // Width of each card
+    let currentPosition = 0; // Current position of the card track
+
+    // Function to scroll left
+    function scrollLeft() {
+        if (currentPosition < cardWidth) {
+            currentPosition = 0;
+        } else {
+            currentPosition -= cardWidth;
+        }
+        cardTrack.style.transform = `translateX(-${currentPosition}px)`;
+    }
+
+    // Function to scroll right
+    function scrollRight() {
+        if (currentPosition >= (cardTrack.scrollWidth - cardWidth)) {
+            currentPosition = 0;
+        } else {
+            currentPosition += cardWidth;
+        }
+        cardTrack.style.transform = `translateX(-${currentPosition}px)`;
+    }
+
+    // Add event listeners to buttons
+    prevBtn.addEventListener('click', scrollLeft);
+    nextBtn.addEventListener('click', scrollRight);
 });
 
 
