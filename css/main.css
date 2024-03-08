@@ -384,7 +384,7 @@ body {
 
 @media (max-width: 992px) {
   .services__container .card-track-marquee .card {
-    width: 300px;
+    width: 95vw;
     margin: 20px 10px;
   }
 }

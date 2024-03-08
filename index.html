@@ -289,7 +289,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const cardTrack = document.querySelector('.card-track');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
-    const cardWidth = 450; // Width of each card
+    const cardWidth = 100; // Width of each card
     let currentPosition = 0; // Current position of the card track
 
     // Function to scroll left
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             currentPosition -= cardWidth;
         }
-        cardTrack.style.transform = `translateX(-${currentPosition}px)`;
+        cardTrack.style.transform = `translateX(-${currentPosition}vw)`;
     }
 
     // Function to scroll right
